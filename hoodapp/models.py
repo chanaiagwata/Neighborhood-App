@@ -14,6 +14,9 @@ class Neighborhood(models.Model):
     police_contact  = models.IntegerField()
     admin = models.ForeignKey("Profile", on_delete=models.CASCADE)
     
+    def __str__(self):
+        return self.name
+    
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -21,6 +24,9 @@ class Profile(models.Model):
     profile_pic = models.ImageField(upload_to = 'images/')
     bio = models.TextField(max_length=240, null=True)
     location = models.CharField(max_length=255, null=False)
+    
+    def __str__(self):
+        return self.user
 
 
 class Business(models.Model):
@@ -29,6 +35,9 @@ class Business(models.Model):
     email = models.EmailField(max_length=250)
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -37,6 +46,9 @@ class Post(models.Model):
     description = models.TextField(max_length=255)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     posted_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title
     
 
 
