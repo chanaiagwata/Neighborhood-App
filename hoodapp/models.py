@@ -17,6 +17,18 @@ class Neighborhood(models.Model):
     def __str__(self):
         return self.name
     
+    def create_neighborhood(self):
+        self.save()
+        
+    def delete_neighborhood(self):
+        self.delete()
+    
+    @classmethod
+    def find_neighborhood(cls, neighborhood_id):
+        return cls.objects.filter(id=neighborhood_id)
+        
+    
+    
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -27,6 +39,12 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.user
+    
+    def create_profile(self):
+        self.save()
+    
+    def delete_profile(self):
+        self.delete()
 
 
 class Business(models.Model):
@@ -38,6 +56,11 @@ class Business(models.Model):
     
     def __str__(self):
         return self.name
+    
+    @classmethod
+    def search_by_name(cls, search_term):
+        business = cls.objects.filter(name__icontains=search_term)
+        return business
 
 
 class Post(models.Model):
