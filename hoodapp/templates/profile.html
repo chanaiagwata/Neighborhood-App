@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <br>
             <br>
-            <h4>Profile</h4>
+            <h4 style>Profile</h4>
             <br>
             {% if user.profile.profile_pic.url %}
 
@@ -25,8 +25,8 @@
                 {% endif %}
                 <div style="margin-top:30px; font-family:sans serif;">
                     <p style=" font-size:16px;">{{user.profile.bio}}</p>
-                    <p style=" font-size:18px;">{{user.profile.hoodname}}</p>
-                    <p style=" font-size:20px;font-weight:bold;">{{user.profile.location}}</p>
+                    <p style=" font-size:18px;">Hood: {{user.profile.hoodname}}</p>
+                    <p style=" font-size:20px;">Location: {{user.profile.location}}</p>
                 </div>
                 <p class="btn btn-primary btn-sm">
                     <a style="color:white;" href="{%url 'update' %}">Update Profile</a>
