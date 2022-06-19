@@ -22,4 +22,5 @@ urlpatterns = [
     path(r'',include('hoodapp.urls')),
     path(r'accounts/', include('django_registration.backends.one_step.urls')),
     path('logout/',auth_views.logout_then_login, name ='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

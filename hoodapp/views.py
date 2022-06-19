@@ -10,6 +10,9 @@ def index(request):
     '''
     return render(request, 'index.html')
 
+def profile(request):
+    return render(request, 'profile.html')
+
 def search_business(request):
     if 'business' in request.GET and request.GET["business"]:
         search_term = request.GET.get("business")

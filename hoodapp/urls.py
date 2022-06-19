@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns = [
     path(r'', views.index, name = 'indexpage'),
-    path(r'search/', views.search_business, name='search_business')
+    path(r'search/', views.search_business, name='search_business'),
+    path('accounts/profile/',views.profile,name = 'profile'),
 ]
 
 if settings.DEBUG:
