@@ -5,3 +5,8 @@ class DetailsForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user']
+        
+class addHoodForm(forms.ModelForm):
+    class Meta:
+        model = Neighborhood
+        exclude = ['admin']

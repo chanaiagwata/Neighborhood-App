@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import Business, Profile, Post, Neighborhood
-from .forms import DetailsForm
+from .forms import DetailsForm, addHoodForm
+
 # Create your views here.
 
 def index(request):
@@ -11,7 +12,7 @@ def index(request):
     '''
     return render(request, 'index.html')
 
-@login_required
+@login_required()
 def profile(request):
     posts = Post.objects.all()
     current_user = request.user 
@@ -31,7 +32,7 @@ def profile(request):
         
     return render(request,'profile.html', {'details_form':details_form})
 
-@login_required
+@login_required()
 def update_profile(request):
     current_user = request.user
     if request.method== 'POST':
@@ -49,10 +50,23 @@ def update_profile(request):
 
 
 def hoods(request):
-    '''
-    Function that renders the landing page
-    '''
-    return render(request, 'hoods.html')
+    hood = Neighborhood.objects.all()
+    # current_user = request.user
+    
+    if request.method=="POST":
+        form = addHoodForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            
+            post = form.save(commit=False)
+            post.hood =hood
+            post.user = request.user.profile
+            form.save()
+        return redirect('hoodpage')
+    else:
+        form=addHoodForm()     
+    return render(request, 'hoods.html',{'form':form})
+
 
 
 
