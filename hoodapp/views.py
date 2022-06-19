@@ -50,7 +50,7 @@ def update_profile(request):
 
 
 def hoods(request):
-    hood = Neighborhood.objects.all()
+    hoods = Neighborhood.objects.all()
     # current_user = request.user
     
     if request.method=="POST":
@@ -59,13 +59,13 @@ def hoods(request):
         if form.is_valid():
             
             post = form.save(commit=False)
-            post.hood =hood
+            post.hood =hoods
             post.user = request.user.profile
             form.save()
         return redirect('hoodpage')
     else:
         form=addHoodForm()     
-    return render(request, 'hoods.html',{'form':form})
+    return render(request, 'hoods.html',{'form':form, 'hood':hoods})
 
 
 
