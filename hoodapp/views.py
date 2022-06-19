@@ -48,7 +48,11 @@ def update_profile(request):
     return render(request, 'update_profile.html', {"form":form})
 
 
-
+def hoods(request):
+    '''
+    Function that renders the landing page
+    '''
+    return render(request, 'hoods.html')
 
 
 

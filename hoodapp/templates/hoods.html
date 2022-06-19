@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}
+    {% bootstrap_css %}
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% endblock %}
+</head>
+<body id="bg" style="background-image: url('{% static "images/hoods.jpg"%}');color:white;">
+
+</body>
+</html>
+{% endblock %}
