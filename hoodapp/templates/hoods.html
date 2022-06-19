@@ -40,7 +40,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">New Neighborhood</h5>
+                                <h2 class="modal-title" id="exampleModalLongTitle" style="text-align:center;">New Neighborhood</h2>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -68,15 +68,15 @@
                     {% if hoods %}
                     {% for hood in hoods %}
                     <div class="col-md-4">
-                        <div class="card mb-4" style="min-height:340px">
+                        <div class="card mb-4" style="min-height:300px">
                             <img src="{{ hood.hood_pic.url }}" class="card-img-top" alt="{{ hood.name }}" style="width: auto; height:20rem;">
                             <div class="card-body">
                                 <h6 class="card-title">{{ hood.name }}  ({{hood.location}}) <span class="ml-4">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h6>
                                 <p class="card-text">{{hood.description}}</p>
-                                <p class="card-text">{{hood.health_officers}}</p>
+                                <p class="card-text">{{hood.health_centers}}</p>
                                 <p class="card-text">{{hood.health_contact}}</p>
-                                <p class="card-text">{{hood.police_officers}}</p>
-                                <p class="card-text">{{hood.contact}}</p>
+                                <p class="card-text">{{hood.police_authorities}}</p>
+                                <p class="card-text">{{hood.police_contact}}</p>
 
                                 {% if request.user.profile.neighbourhood == hood %}
                                 <a href="" class="btn btn-outline-danger btn-sm">Leave Hood</a>

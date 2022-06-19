@@ -8,10 +8,10 @@ class Neighborhood(models.Model):
     location = models.CharField(max_length=250, null=False)
     hood_pic = models.ImageField(upload_to = 'posts/')
     description = models.TextField(max_length=255)
-    health_officers = models.CharField(blank=True, max_length=250)
-    health_contact =models.IntegerField()
-    police_officers  = models.CharField(blank=True, max_length=250)
-    police_contact  = models.IntegerField()
+    health_contact = models.CharField(blank=True, max_length=250)
+    health_centers =models.IntegerField()
+    police_contact  = models.CharField(blank=True, max_length=250)
+    police_authorities  = models.IntegerField()
     admin = models.ForeignKey("Profile", on_delete=models.CASCADE)
     
     def __str__(self):
@@ -36,6 +36,7 @@ class Profile(models.Model):
     profile_pic = models.ImageField(upload_to = 'images/')
     bio = models.TextField(max_length=240, null=True)
     location = models.CharField(max_length=255, null=False)
+    neighbourhood = models.ForeignKey(Neighborhood, on_delete=models.SET_NULL, null=True,  blank=False, related_name='members')
     
     def __str__(self):
         return self.user
