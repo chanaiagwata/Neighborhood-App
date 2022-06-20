@@ -63,9 +63,17 @@ def hoods(request):
         return redirect('hoodpage')
     else:
         form=addHoodForm()
+    try:
+        hoods = hoods[::-1]
+        
+    except Neighborhood.DoesNotExist:
+        hoods = None
    
     return render(request, 'hoods.html',{'form':form, 'hoods':hoods})
 
+def join_hood(request):
+    
+    return render(request, 'join.html')
 
 
 
