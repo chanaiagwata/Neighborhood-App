@@ -58,14 +58,13 @@ def hoods(request):
         
         if form.is_valid():
             
-            post = form.save(commit=False)
-            post.hood =hoods
-            post.user = request.user.profile
+            hood = form.save(commit=False)
             form.save()
         return redirect('hoodpage')
     else:
-        form=addHoodForm()     
-    return render(request, 'hoods.html',{'form':form, 'hood':hoods})
+        form=addHoodForm()
+   
+    return render(request, 'hoods.html',{'form':form, 'hoods':hoods})
 
 
 

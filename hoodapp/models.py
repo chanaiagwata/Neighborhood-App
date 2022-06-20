@@ -12,7 +12,6 @@ class Neighborhood(models.Model):
     health_centers =models.IntegerField()
     police_contact  = models.CharField(blank=True, max_length=250)
     police_authorities  = models.IntegerField()
-    admin = models.ForeignKey("Profile", on_delete=models.CASCADE)
     
     def __str__(self):
         return self.name
