@@ -29,6 +29,9 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -67,16 +70,20 @@
 
                     {% if hoods %}
                     {% for hood in hoods %}
-                    <div class="col-md-4">
-                        <div class="card mb-4" style="min-height:300px">
-                            <img src="{{ hood.hood_pic.url }}" class="card-img-top" alt="{{ hood.name }}" style="width: auto; height:20rem;">
-                            <div class="card-body">
-                                <h6 class="card-title">{{ hood.name }}  ({{hood.location}}) <span class="ml-4">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h6>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card mb-4" style="min-height:300px; width:auto;">
+                            
+                            <div class="card-body" style="background:#DEDEDE; margin-bottom:20px; padding:25px; border-radius:10px;">
+                                <img src="{{ hood.hood_pic.url }}" class="card-img-top" alt="{{ hood.name }}" style="height:20rem;">
+                                <h3 class="card-title">{{ hood.name }}-{{hood.location}} <span class="ml-4"></h3>
+                                    <h3>{{hood.members.count}} Resident{{hood.members.count|pluralize}}</h3>
                                 <p class="card-text">{{hood.description}}</p>
-                                <p class="card-text">{{hood.health_centers}}</p>
-                                <p class="card-text">{{hood.health_contact}}</p>
-                                <p class="card-text">{{hood.police_authorities}}</p>
-                                <p class="card-text">{{hood.police_contact}}</p>
+                                <br>
+                                <br>
+                                <p class="card-text"><span style="font-size:18px;font-family:sans serif;">Health Centers: </span>{{hood.health_centers}}</p>
+                                <p class="card-text"><span style="font-size:18px;font-family:sans serif;">Health Department Contact:</span> {{hood.health_contact}}</p>
+                                <p class="card-text"><span style="font-size:18px;font-family:sans serif;">Police Authorities: </span>{{hood.police_authorities}}</p>
+                                <p class="card-text"><span style="font-size:18px;font-family:sans serif;">Police Service Line:</span> {{hood.police_contact}}</p>
 
                                 {% if request.user.profile.neighbourhood == hood %}
                                 <a href="" class="btn btn-outline-danger btn-sm">Leave Hood</a>
