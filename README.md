@@ -2,13 +2,13 @@
 ## By Chanai Agwata
 ### (MS School Project)
 
-* [Overall Description]()
+* [Overall Description](https://github.com/chanaiagwata/Neighborhood-App#overall-project-description)
 
-* [Setup Instructions]()
+* [Setup Instructions](https://github.com/chanaiagwata/Neighborhood-App#setup-instructions)
 
-* [License]()
+* [License](https://github.com/chanaiagwata/Neighborhood-App#license)
 
-* [Author's Info]()
+* [Author's Info](https://github.com/chanaiagwata/Neighborhood-App#authors-info)
 
 ## Overall Project Description
 <p>This is a web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.</p>
