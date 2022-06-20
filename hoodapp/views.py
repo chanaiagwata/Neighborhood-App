@@ -12,7 +12,6 @@ def index(request):
     '''
     return render(request, 'index.html')
 
-@login_required()
 def profile(request):
     posts = Post.objects.all()
     current_user = request.user 
@@ -32,7 +31,7 @@ def profile(request):
         
     return render(request,'profile.html', {'details_form':details_form})
 
-@login_required()
+
 def update_profile(request):
     current_user = request.user
     if request.method== 'POST':
@@ -49,6 +48,7 @@ def update_profile(request):
     return render(request, 'update_profile.html', {"form":form})
 
 
+@login_required()
 def hoods(request):
     hoods = Neighborhood.objects.all()
     # current_user = request.user

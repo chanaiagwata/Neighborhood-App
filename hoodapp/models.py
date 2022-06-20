@@ -51,7 +51,7 @@ class Business(models.Model):
     name = models.CharField(max_length=250)
     description = models.TextField(max_length=255)
     email = models.EmailField(max_length=250)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
     
     def __str__(self):
@@ -67,7 +67,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
     description = models.TextField(max_length=255)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     posted_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
