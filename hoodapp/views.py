@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import Business, Profile, Post, Neighborhood
-from .forms import DetailsForm, addHoodForm
+from .forms import BusinessForm, DetailsForm, addHoodForm
 
 # Create your views here.
 
@@ -71,12 +71,27 @@ def hoods(request):
    
     return render(request, 'hoods.html',{'form':form, 'hoods':hoods})
 
+
 def join_hood(request):
-    
+
     return render(request, 'join.html')
 
 
-
+def businesses(request):
+    businesses = Business.objects.all()
+    if request.method=="POST":
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            form.save()
+        return redirect('joinpage')
+    else:
+        form=BusinessForm()
+    try:
+        businesses = businesses[::-1]
+    except Business.DoesNotExist:
+        businesses = None
+    return render(request, 'businesses.html',{'form':form, 'businesses':businesses})
 
 
 def search_business(request):

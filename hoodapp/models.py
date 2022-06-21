@@ -58,6 +58,10 @@ class Business(models.Model):
         return self.name
     
     @classmethod
+    def get_business_by_id(cls,id):
+        business = cls.objects.filter(id= id).all()
+        return business
+    @classmethod
     def search_by_name(cls, search_term):
         business = cls.objects.filter(name__icontains=search_term)
         return business

@@ -9,7 +9,8 @@ urlpatterns = [
     path('accounts/profile/',views.profile,name = 'profile'),
     path(r'update_profile', views.update_profile, name='update'),
     path('hoods/', views.hoods, name='hoodpage'),
-    path('hoods/join/', views.join_hood, name='joinpage')
+    path('hoods/join/', views.join_hood, name='joinpage'),
+    path('hoods/join/business', views.businesses, name='bizpage')
 ]
 
 if settings.DEBUG:
